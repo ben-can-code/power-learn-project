@@ -1,0 +1,33 @@
+QL (Structured Query Language) is a standardized language used to interact with relational databases. It allows users to perform various operations such as querying, updating, and managing data, as well as defining the structure of a database. Here's an overview of SQL's purpose and applications, particularly for web applications, along with the fundamental components of a database.
+
+Purpose of SQL
+Data Management: SQL enables storing, retrieving, updating, and deleting data efficiently.
+Data Analysis: It helps in analyzing large datasets by executing complex queries.
+Database Design: SQL allows creating and modifying database structures (schemas).
+Access Control: SQL includes commands to manage user permissions and security.
+Interoperability: SQL is supported by most relational database management systems (RDBMS) like MySQL, PostgreSQL, SQLite, and SQL Server.
+Applications of SQL in Web Applications
+User Authentication: Managing user login credentials securely in a database.
+Dynamic Content: Retrieving and updating data dynamically based on user interaction (e.g., displaying user profiles, product catalogs).
+Data Integration: Fetching and combining data from multiple tables to provide insights.
+Back-End Services: Supporting functionalities like search, filters, and recommendation systems by executing queries.
+Data Storage: Persistently storing transactional data, such as orders, payments, or messages.
+Fundamental Components of a Database
+Tables:
+
+Definition: Tables are the primary structures in a relational database used to store data in rows and columns.
+Purpose: Each table typically represents an entity (e.g., Users, Products, Orders).
+Columns:
+
+Definition: Columns define the structure of the table by specifying the attributes of the entity.
+Example: A Users table might have columns like id, name, email, and password.
+Role: They define the type of data (via data types) that can be stored for each attribute.
+Data Types:
+
+Definition: Data types specify the kind of data that can be stored in a column.
+Common Examples:
+INTEGER: Whole numbers (e.g., id or age).
+VARCHAR/CHAR: Text data (e.g., name or email).
+DATE/TIMESTAMP: Dates and times (e.g., created_at).
+FLOAT/DECIMAL: Numbers with decimal points (e.g., price).
+BOOLEAN: True/False values (e.g., is_active).
