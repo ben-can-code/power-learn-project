@@ -1,76 +1,24 @@
-1. Basic Retrieval with SELECT
-The SELECT statement is used to query specific columns or all columns from a table.
+Write an SQL query to create the categories table with the following requirements:
 
-sql
-Copy code
--- Retrieve all data from the Expenses table
-SELECT * FROM Expenses;
+I. The table should have a primary key column named categoryID which is an integer and will auto-increment.
+II. The table should have another column named categoryName which is a string (VARCHAR) that can hold up to 50 characters.
 
--- Retrieve specific columns: Date, Amount, and Category
-SELECT Date, Amount, Category FROM Expenses;
-2. Using Wildcards (%) with the LIKE Operator
-Wildcards are used for pattern matching, often with the LIKE operator. % represents zero or more characters.
+Write an SQL query to insert at least 5 categories into the categories table. Each category should have a unique categoryName
+You are tasked with creating a table for storing customer information in a bills management system. Write an SQL query to create the customer table with the following requirements:
+The table should have a primary key column named customerID, which is an integer and will auto-increment.
+The table should include the following columns:
+customerName: A string (VARCHAR) that can hold up to 50 characters. This field should not allow NULL values.
+email: A string (VARCHAR) that can hold up to 50 characters.
+phoneNumber: A string (VARCHAR) that can hold up to 11 characters.
+customerAddress: A string (VARCHAR) that can hold up to 20 characters.
+dateCreated: A timestamp that records the time the customer was added to the database. The default value should be the current timestamp.
+You are tasked with inserting data into the customer table. Write an SQL query to insert at least 4 customer records into the table.
+You need to update the customerAddress to "Lavington" for two customers in the customer table. The customers have the following customerID:
 
-sql
-Copy code
--- Find all expenses with categories starting with 'F'
-SELECT * FROM Expenses
-WHERE Category LIKE 'F%';
+customerID = 1 and customerID = 2
 
--- Find expenses where the description contains the word 'dinner'
-SELECT * FROM Expenses
-WHERE Description LIKE '%dinner%';
-3. Applying Comparison Operators
-Comparison operators such as =, <, >, <=, and >= help target specific data.
+Write an SQL query to update the customerAddress to "Lavington" for both customers.
 
-sql
-Copy code
--- Retrieve expenses greater than $100
-SELECT * FROM Expenses
-WHERE Amount > 100;
+Make sure to use the correct WHERE condition to select the customers by customerID.
 
--- Retrieve expenses made on or after a specific date
-SELECT * FROM Expenses
-WHERE Date >= '2024-01-01';
-4. Using the WHERE Clause with Logical Operators
-Logical operators (AND, OR, NOT) combine multiple conditions for precise filtering.
-
-sql
-Copy code
--- Find expenses greater than $50 and categorized as 'Groceries'
-SELECT * FROM Expenses
-WHERE Amount > 50 AND Category = 'Groceries';
-
--- Find expenses either categorized as 'Dining' or 'Entertainment'
-SELECT * FROM Expenses
-WHERE Category = 'Dining' OR Category = 'Entertainment';
-
--- Exclude expenses made for 'Transport'
-SELECT * FROM Expenses
-WHERE NOT Category = 'Transport';
-5. Organizing Data with ORDER BY
-The ORDER BY clause arranges data in ascending (default) or descending (DESC) order.
-
-sql
-Copy code
--- Retrieve all expenses ordered by Amount (lowest to highest)
-SELECT * FROM Expenses
-ORDER BY Amount;
-
--- Retrieve all expenses ordered by Date in descending order
-SELECT * FROM Expenses
-ORDER BY Date DESC;
-
--- Combine filtering and ordering: expenses above $100, ordered by Category
-SELECT * FROM Expenses
-WHERE Amount > 100
-ORDER BY Category ASC;
-Comprehensive Example
-This query retrieves all dining expenses above $50, ordered by the date in descending order:
-
-sql
-Copy code
-SELECT Date, Description, Amount, Category
-FROM Expenses
-WHERE Amount > 50 AND Category = 'Dining'
-ORDER BY Date DESC;
+You are tasked with deleting a category from the categories table. Write an SQL query to delete the category where the categoryID is equal to 2.
