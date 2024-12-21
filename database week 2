@@ -1,0 +1,76 @@
+1. Basic Retrieval with SELECT
+The SELECT statement is used to query specific columns or all columns from a table.
+
+sql
+Copy code
+-- Retrieve all data from the Expenses table
+SELECT * FROM Expenses;
+
+-- Retrieve specific columns: Date, Amount, and Category
+SELECT Date, Amount, Category FROM Expenses;
+2. Using Wildcards (%) with the LIKE Operator
+Wildcards are used for pattern matching, often with the LIKE operator. % represents zero or more characters.
+
+sql
+Copy code
+-- Find all expenses with categories starting with 'F'
+SELECT * FROM Expenses
+WHERE Category LIKE 'F%';
+
+-- Find expenses where the description contains the word 'dinner'
+SELECT * FROM Expenses
+WHERE Description LIKE '%dinner%';
+3. Applying Comparison Operators
+Comparison operators such as =, <, >, <=, and >= help target specific data.
+
+sql
+Copy code
+-- Retrieve expenses greater than $100
+SELECT * FROM Expenses
+WHERE Amount > 100;
+
+-- Retrieve expenses made on or after a specific date
+SELECT * FROM Expenses
+WHERE Date >= '2024-01-01';
+4. Using the WHERE Clause with Logical Operators
+Logical operators (AND, OR, NOT) combine multiple conditions for precise filtering.
+
+sql
+Copy code
+-- Find expenses greater than $50 and categorized as 'Groceries'
+SELECT * FROM Expenses
+WHERE Amount > 50 AND Category = 'Groceries';
+
+-- Find expenses either categorized as 'Dining' or 'Entertainment'
+SELECT * FROM Expenses
+WHERE Category = 'Dining' OR Category = 'Entertainment';
+
+-- Exclude expenses made for 'Transport'
+SELECT * FROM Expenses
+WHERE NOT Category = 'Transport';
+5. Organizing Data with ORDER BY
+The ORDER BY clause arranges data in ascending (default) or descending (DESC) order.
+
+sql
+Copy code
+-- Retrieve all expenses ordered by Amount (lowest to highest)
+SELECT * FROM Expenses
+ORDER BY Amount;
+
+-- Retrieve all expenses ordered by Date in descending order
+SELECT * FROM Expenses
+ORDER BY Date DESC;
+
+-- Combine filtering and ordering: expenses above $100, ordered by Category
+SELECT * FROM Expenses
+WHERE Amount > 100
+ORDER BY Category ASC;
+Comprehensive Example
+This query retrieves all dining expenses above $50, ordered by the date in descending order:
+
+sql
+Copy code
+SELECT Date, Description, Amount, Category
+FROM Expenses
+WHERE Amount > 50 AND Category = 'Dining'
+ORDER BY Date DESC;
