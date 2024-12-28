@@ -1,0 +1,152 @@
+Part 1: CSS Basics - Selectors, Properties, and Values (20 Points)
+In this part, we'll use element selectors, class selectors, and ID selectors to style different elements.
+
+HTML:
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Basics</title>
+    <style>
+        /* Element Selector */
+        h1 {
+            font-size: 30px;
+        }
+
+        /* Class Selector */
+        .section {
+            background-color: lightblue;
+        }
+
+        /* ID Selector */
+        #unique {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Heading 1</h1>
+    <p>This is a paragraph.</p>
+
+    <div class="section">
+        <h2>This is a section with background color</h2>
+        <p>More content here...</p>
+    </div>
+
+    <div id="unique">
+        <h3>This is an element with a border</h3>
+        <p>Details about the element...</p>
+    </div>
+
+</body>
+</html>
+
+
+e, Internal, and External CSS (30 Points)
+Inline CSS (Change text color):
+html
+Copy code
+<p style="color: green;">This paragraph has inline CSS that changes the text color to green.</p>
+Internal CSS (Inside <style> tag in <head>):
+html
+Copy code
+<head>
+    <style>
+        /* Style for all paragraphs */
+        p {
+            color: blue;
+        }
+
+        /* Style for all headings */
+        h1, h2, h3 {
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Style for all divs */
+        div {
+            padding: 20px;
+        }
+    </style>
+</head>
+External CSS (Link to an external file):
+Create an external CSS file called styles.css:
+css
+Copy code
+/* styles.css */
+
+body {
+    background-color: lightgray;
+}
+
+a:hover {
+    color: red;
+    text-decoration: underline;
+}
+Link the external CSS file to your HTML:
+html
+Copy code
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
+Part 3: Basic Styling Properties (50 Points)
+In this part, we'll apply colors, font styles, text alignment, and spacing, and create a simple card component.
+
+HTML:
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Styling</title>
+    <style>
+        /* Colors */
+        p {
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: darkblue;
+        }
+
+        /* Font Styles */
+        h1 {
+            font-family: 'Arial', sans-serif;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        /* Text Alignment */
+        p {
+            text-align: justify;
+        }
+
+        /* Spacing (Padding and Margin) */
+        .card {
+            padding: 20px;
+            margin: 15px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to My Website</h1>
+    <p>This is a paragraph that explains the content of the website. The text is justified to ensure it's aligned neatly.</p>
+
+    <!-- Card Component -->
+    <div class="card">
+        <h2>Card Title</h2>
+        <p>This is a simple card description with some content. The card has padding inside, and margin around it.</p>
+    </div>
+
+</body>
+</html>
