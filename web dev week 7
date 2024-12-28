@@ -1,0 +1,127 @@
+Part 1: CSS3 Transitions and Animations
+1. CSS Transitions for Hover Effects
+css
+Copy code
+/* Button with smooth hover transition */
+.button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transition properties */
+}
+
+.button:hover {
+    background-color: #45a049; /* Change color on hover */
+    transform: scale(1.1); /* Grow the button slightly */
+}
+
+/* Focus effect for accessibility */
+.button:focus {
+    outline: none;
+    border: 2px solid #4CAF50;
+}
+2. CSS Animations using @keyframes
+css
+Copy code
+/* Keyframes for fading animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in-element {
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Keyframes for rotating animation */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rotate-element {
+    animation: rotate 3s infinite linear; /* Continuous rotation */
+}
+Part 2: JavaScript Functions
+1. Function with Parameters and Return Values (e.g., Calculate Area of a Rectangle)
+javascript
+Copy code
+function calculateArea(length, width) {
+    return length * width;
+}
+
+let area = calculateArea(5, 3); // Call the function with parameters
+console.log("Area of rectangle: " + area); // Output: Area of rectangle: 15
+2. Function Demonstrating Scope (Local vs. Global Variables)
+javascript
+Copy code
+let globalVar = "I am global";
+
+function demonstrateScope() {
+    let localVar = "I am local";
+    console.log(globalVar); // Access global variable
+    console.log(localVar);  // Access local variable
+}
+
+demonstrateScope(); // Both globalVar and localVar will be logged
+
+console.log(globalVar); // Accessible outside the function
+// console.log(localVar); // Uncaught ReferenceError: localVar is not defined
+3. Function to Toggle a CSS Class (For Modal or Other Animations)
+javascript
+Copy code
+function toggleClass(element, className) {
+    element.classList.toggle(className);
+}
+
+const button = document.getElementById("toggleButton");
+const modal = document.getElementById("modal");
+
+button.addEventListener("click", function() {
+    toggleClass(modal, "hidden"); // Toggles the 'hidden' class on the modal
+});
+Part 3: Combining CSS Animations with JavaScript
+1. Triggering CSS Animation with JavaScript (Example: Button to Start Animation)
+html
+Copy code
+<button id="animateButton">Animate</button>
+<div id="animatedElement" class="fade-in-element">This will fade in on button click!</div>
+javascript
+Copy code
+const animateButton = document.getElementById("animateButton");
+const animatedElement = document.getElementById("animatedElement");
+
+animateButton.addEventListener("click", function() {
+    // Reset the animation by removing and re-adding the class
+    animatedElement.classList.remove("fade-in-element");
+    void animatedElement.offsetWidth; // Trigger reflow to restart the animation
+    animatedElement.classList.add("fade-in-element");
+});
+Explanation: This code ensures that every time the button is clicked, the animation resets by removing and re-adding the fade-in-element class.
+2. Interactive Element with CSS Class Toggle to Control Animation
+html
+Copy code
+<button id="toggleRotateButton">Toggle Rotation</button>
+<div id="rotateElement" class="rotate-element">Rotating element</div>
+javascript
+Copy code
+const toggleRotateButton = document.getElementById("toggleRotateButton");
+const rotateElement = document.getElementById("rotateElement");
+
+toggleRotateButton.addEventListener("click", function() {
+    rotateElement.classList.toggle("rotate-element"); // Toggle the rotation effect
+});
