@@ -1,0 +1,56 @@
+-- Create the database
+CREATE DATABASE UniversityDB;
+USE UniversityDB;
+
+-- Table for storing student information
+CREATE TABLE Students (
+    StudentID INT PRIMARY KEY AUTO_INCREMENT,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    DateOfBirth DATE,
+    Gender ENUM('Male', 'Female', 'Other'),
+    Email VARCHAR(100) UNIQUE,
+    Phone VARCHAR(15),
+    Address TEXT,
+    DepartmentID INT,
+    FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID) ON DELETE SET NULL
+);
+
+-- Table for storing department information
+CREATE TABLE Departments (
+    DepartmentID INT PRIMARY KEY AUTO_INCREMENT,
+    DepartmentName VARCHAR(100) NOT NULL UNIQUE
+);
+
+-- Table for storing professor information
+CREATE TABLE Professors (
+    ProfessorID INT PRIMARY KEY AUTO_INCREMENT,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    Email VARCHAR(100) UNIQUE,
+    Phone VARCHAR(15),
+    DepartmentID INT,
+    FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID) ON DELETE SET NULL
+);
+
+-- Table for storing course information
+CREATE TABLE Courses (
+    CourseID INT PRIMARY KEY AUTO_INCREMENT,
+    CourseName VARCHAR(100) NOT NULL,
+    Credits INT NOT NULL,
+    DepartmentID INT,
+    ProfessorID INT,
+    FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID) ON DELETE CASCADE,
+    FOREIGN KEY (ProfessorID) REFERENCES Professors(ProfessorID) ON DELETE SET NULL
+);
+
+-- Table for storing enrollment information
+CREATE TABLE Enrollments (
+    EnrollmentID INT PRIMARY KEY AUTO_INCREMENT,
+    StudentID INT,
+    CourseID INT,
+    EnrollmentDate DATE DEFAULT CURRENT_DATE,
+    Grade CHAR(2),
+    FOREIGN KEY (StudentID) REFERENCES Students(StudentID) ON DELETE CASCADE,
+    FOREIGN KEY (CourseID) REFERENCES Courses(CourseID) ON DELETE CASCADE
+);
